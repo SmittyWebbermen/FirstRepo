@@ -30,4 +30,8 @@ public class Item implements Serializable {
 	public String toString() {
 		return name;
 	}
+	
+	public void use() {
+		Game.print("You can't use the " + getName() + ".");
+	}
 }

@@ -4,6 +4,10 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class Room implements Serializable {
+	
+	private boolean locked;
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	// Lab 10: every Room ever created is kept here so the game can save them all.
@@ -73,4 +77,14 @@ public class Room implements Serializable {
 		Collections.sort(list, (a, b) -> a.getName().compareTo(b.getName()));
 		return list;
 	}
+	
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
+	
+	public boolean isLocked() {
+		return locked;
+	}
+	
+	
 }

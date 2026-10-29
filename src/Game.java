@@ -20,6 +20,16 @@ public class Game {
 	private static GameGUI gui;   // null when playing in the console
 
 	private static final String SAVE_FILE = "save0.sav";
+	
+	private static void useItem(String name) {
+	    for (Item item : inventory) {
+	        if (item.getName().equals(name)) {
+	            item.use();
+	            return;
+	        }
+	    }
+	    Game.print("You don't have a " + name + ".");
+	}
 
 
 	public static void main(String[] args) {
@@ -126,6 +136,8 @@ public class Game {
 		}
 		if (next == null) {
 			Game.print("You can't go that way.");
+		} else if(next.isLocked()) {
+			Game.print("The " + next.getName() + " is locked.");
 		} else {
 			currentRoom = next;
 		}
@@ -160,6 +172,7 @@ public class Game {
 	public static void runGame() {
 		Scanner input = new Scanner(System.in);
 		String command = "";
+		
 
 		while (!command.equals("exit")) {
 			Game.print(currentRoom);
@@ -266,6 +279,13 @@ public class Game {
 			Game.print("Yeah, alright. I was bored playing with you too.");
 			gui.closeLater();
 			break;
+		case "use":
+			if(words.length < 2) {
+				Game.print("Use what?");
+			}else {
+				useItem(words[1]);
+			}
+			break;
 		default:
 			Game.print("Not a valid command.");
 			break;
@@ -314,6 +334,10 @@ public class Game {
 		} else {
 			System.out.println(obj);
 		}
+	}
+
+	public static Room getCurrentRoom() {
+		return currentRoom;
 	}
 }
 
