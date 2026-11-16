@@ -38,7 +38,9 @@ public class World {
 		kitchen.addItem(new Item("flashlight"));
 		kitchen.addItem(new Item("knife"));
 		kitchen.addItem(new Item("orb"));
-		attic.addItem(new Safe());
+		attic.addItem(new Safe());   // Lab 12
+
+		living.addNPC(new Bobo());   // Lab 13
 
         return living;
     }

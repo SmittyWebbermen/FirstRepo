@@ -19,12 +19,14 @@ public class Room implements Serializable {
 	private Room[] exits;
 //	private Item item;   // each room holds at most one item (for now)
 	private HashMap<String, Item> items;
+	private HashMap<String, NPC> npcs;   // Lab 13
 
 	public Room(String name, String description) {
 		this.name = name;
 //		this.description = description;
 		this.exits = new Room[6];
 		this.items = new HashMap<>();
+		this.npcs = new HashMap<>();
 		rooms.add(this);   // Lab 10: remember this room
 	}
 
@@ -78,6 +80,15 @@ public class Room implements Serializable {
 		return list;
 	}
 	
+	// Lab 13: NPCs
+	public void addNPC(NPC npc) {
+		npcs.put(npc.getName(), npc);
+	}
+
+	public NPC getNPC(String name) {
+		return npcs.get(name);
+	}
+
 	public void setLocked(boolean locked) {
 		this.locked = locked;
 	}

@@ -79,6 +79,17 @@ public class Game {
 	}
 
 
+	// Lab 13: talk to an NPC, but only if they're in the current room
+	private static void talkTo(String name) {
+		NPC npc = currentRoom.getNPC(name);
+		if (npc == null) {
+			Game.print("There is no " + name + " here to talk to.");
+		} else {
+			npc.talk();
+		}
+	}
+
+
 	public static void main(String[] args) {
 		loadDescriptions();
 		currentRoom = World.buildWorld();
@@ -293,6 +304,13 @@ public class Game {
 					readItem(words[1]);
 				}
 				break;
+			case "talk":
+				if (words.length < 2) {
+					Game.print("Talk to who?");
+				} else {
+					talkTo(words[1]);
+				}
+				break;
 			case "exit":
 				Game.print("Yeah, alright. I was bored playing with you too.");
 				break;
@@ -369,6 +387,13 @@ public class Game {
 				Game.print("Read what?");
 			} else {
 				readItem(words[1]);
+			}
+			break;
+		case "talk":
+			if (words.length < 2) {
+				Game.print("Talk to who?");
+			} else {
+				talkTo(words[1]);
 			}
 			break;
 		case "exit":
