@@ -38,6 +38,7 @@ public class World {
 		kitchen.addItem(new Item("flashlight"));
 		kitchen.addItem(new Item("knife"));
 		kitchen.addItem(new Item("orb"));
+		attic.addItem(new Safe());
 
         return living;
     }

@@ -1,6 +1,7 @@
 
 
 public class Tool extends Item {
+	private static final long serialVersionUID = 1L;
     private boolean usedTool;
 
     public Tool() {

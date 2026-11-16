@@ -31,6 +31,53 @@ public class Game {
 	    Game.print("You don't have a " + name + ".");
 	}
 
+	// Lab 12: open, close, read
+
+	public static void addInventoryItem(Item item) {
+		inventory.add(item);
+	}
+
+	public static boolean hasItem(Item item) {
+		return inventory.contains(item);
+	}
+
+	/** Checks the inventory first, then the current room. */
+	private static Item findItem(String name) {
+		for (Item item : inventory) {
+			if (item.getName().equals(name)) {
+				return item;
+			}
+		}
+		return currentRoom.getItem(name);
+	}
+
+	private static void openItem(String name) {
+		Item item = findItem(name);
+		if (item == null) {
+			Game.print("There is no " + name + " here.");
+		} else {
+			item.open();
+		}
+	}
+
+	private static void closeItem(String name) {
+		Item item = findItem(name);
+		if (item == null) {
+			Game.print("There is no " + name + " here.");
+		} else {
+			item.close();
+		}
+	}
+
+	private static void readItem(String name) {
+		Item item = findItem(name);
+		if (item == null) {
+			Game.print("There is no " + name + " here.");
+		} else {
+			item.read();
+		}
+	}
+
 
 	public static void main(String[] args) {
 		loadDescriptions();
@@ -218,6 +265,34 @@ public class Game {
 			case "load":
 				loadGame();
 				break;
+			case "use":
+				if (words.length < 2) {
+					Game.print("Use what?");
+				} else {
+					useItem(words[1]);
+				}
+				break;
+			case "open":
+				if (words.length < 2) {
+					Game.print("Open what?");
+				} else {
+					openItem(words[1]);
+				}
+				break;
+			case "close":
+				if (words.length < 2) {
+					Game.print("Close what?");
+				} else {
+					closeItem(words[1]);
+				}
+				break;
+			case "read":
+				if (words.length < 2) {
+					Game.print("Read what?");
+				} else {
+					readItem(words[1]);
+				}
+				break;
 			case "exit":
 				Game.print("Yeah, alright. I was bored playing with you too.");
 				break;
@@ -274,6 +349,27 @@ public class Game {
 			break;
 		case "load":
 			loadGame();   // currentRoom changes, so the room gets described below
+			break;
+		case "open":
+			if (words.length < 2) {
+				Game.print("Open what?");
+			} else {
+				openItem(words[1]);
+			}
+			break;
+		case "close":
+			if (words.length < 2) {
+				Game.print("Close what?");
+			} else {
+				closeItem(words[1]);
+			}
+			break;
+		case "read":
+			if (words.length < 2) {
+				Game.print("Read what?");
+			} else {
+				readItem(words[1]);
+			}
 			break;
 		case "exit":
 			Game.print("Yeah, alright. I was bored playing with you too.");

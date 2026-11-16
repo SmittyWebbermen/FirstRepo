@@ -9,7 +9,7 @@ This is your domain and has been since your family moved here when you were six.
 The door to the attic is in the ceiling above the pile of clothes. You can return south to the living room.
 #
 Attic
-The heat and stench of dead air hits your face as you open the Attic. One tiny light bulb dangles from the center of the room and is barely bright enough for you to read.
+The heat and stench of dead air hits your face as you open the Attic. One tiny light bulb dangles from the center of the room and is barely bright enough for you to read. A heavy safe sits in the corner.
 
 You can return to your room by going back down the door.
 #

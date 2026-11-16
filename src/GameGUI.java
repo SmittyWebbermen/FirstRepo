@@ -27,7 +27,7 @@ public class GameGUI extends JFrame {
     private static final long serialVersionUID = 1L;
 
     private static final String GAME_TITLE = "Text Adventure";
-    private static final String HINTS = "Commands: go <direction>, take <item>, i, save, load, exit";
+    private static final String HINTS = "Commands: go, take, use, open, close, read, i, save, load, exit";
 
     // ----- Parchment color palette -----
     private static final Color FRAME_BG     = new Color(232, 217, 181); // tan background

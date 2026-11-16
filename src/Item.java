@@ -34,4 +34,17 @@ public class Item implements Serializable {
 	public void use() {
 		Game.print("You can't use the " + getName() + ".");
 	}
+
+	// Lab 12
+	public void open() {
+		Game.print("You can't open the " + getName() + ".");
+	}
+
+	public void close() {
+		Game.print("You can't close the " + getName() + ".");
+	}
+
+	public void read() {
+		Game.print("You can't read the " + getName() + ".");
+	}
 }
