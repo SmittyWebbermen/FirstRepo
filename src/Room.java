@@ -86,7 +86,12 @@ public class Room implements Serializable {
 	}
 
 	public NPC getNPC(String name) {
-		return npcs.get(name);
+		for (NPC npc : npcs.values()) {
+			if (npc.getName().equals(name)) {
+				return npc;
+			}
+		}
+		return null;
 	}
 
 	public void setLocked(boolean locked) {
